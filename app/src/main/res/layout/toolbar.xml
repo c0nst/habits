@@ -8,6 +8,8 @@
     android:textColor="@color/colorWhite"
     android:elevation="4dp"
     app:theme="@style/AppTheme.Toolbar"
-    app:titleTextAppearance="@style/AppTheme.Toolbar.Title">
+    app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+    android:paddingTop="@dimen/ToolBarPaddingTop"
+    >
 
 </android.support.v7.widget.Toolbar>
