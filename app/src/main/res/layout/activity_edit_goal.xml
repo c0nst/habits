@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="4dp"
+        android:textAppearance="@style/textViewStyle"
+        />
+    <EditText
+        android:id="@+id/goalTitle"
+        android:inputType="textCapWords"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Repeat"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="4dp"
+        android:textAppearance="@style/textViewStyle"
+        />
+    <Spinner
+        android:id="@+id/repeatSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:entries="@array/repeat_values_array"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        >
+    </Spinner>
+
+    <LinearLayout
+        android:id="@+id/customRepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinner_repeat_times"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:entries="@array/repeat_times_array"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="time(s)  per"/>
+
+        <Spinner
+            android:id="@+id/spinner_repeat_period"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:entries="@array/repeat_period_array"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:paddingLeft="10dp"
+            android:text="days"/>
+
+        <ImageView
+            android:id="@+id/repeat_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="warning"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reminder"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="4dp"
+        android:textAppearance="@style/textViewStyle"
+        />
+    <Spinner
+        android:id="@+id/alarmSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:entries="@array/alarm_values_array"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        />
+
+
+</LinearLayout>

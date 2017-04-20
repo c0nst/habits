@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_category_interface">
+
+        <CheckBoxPreference
+            android:key="pref_press_and_hold_to_check"
+            android:title="@string/pref_press_and_hold_to_check"
+            android:summary="@string/pref_press_and_hold_to_check_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="pref_checkmark_orientation"
+            android:title="@string/pref_checkmark_orientation"
+            android:summary="@string/pref_checkmark_orientation_summary"
+            android:entries="@array/checkmark_orientation_array"
+            android:entryValues="@array/checkmark_orientation_alias_array"
+            android:defaultValue="@string/left_to_right_orientation"/>
+
+        <ListPreference
+            android:key="pref_first_day_of_week"
+            android:title="@string/pref_first_day_of_week"
+            android:summary="@string/pref_first_day_of_week_summary"
+            android:entries="@array/first_day_of_week_array"
+            android:entryValues="@array/first_day_of_week_alias_array"
+            android:defaultValue="@string/day_of_week_monday"/>
+
+        <!--<CheckBoxPreference-->
+            <!--android:key="pref_calendar_regular_days_order"-->
+            <!--android:title="@string/pref_calendar_regular_days_order"-->
+            <!--android:summary="@string/pref_calendar_regular_days_order_summary"-->
+            <!--android:defaultValue="false" />-->
+
+    </PreferenceCategory>
+</PreferenceScreen>

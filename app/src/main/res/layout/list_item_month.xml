@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/month_separator"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/month_name"
+        android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_height="wrap_content" />
+
+    <GridView
+        android:id="@+id/month_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:stretchMode="columnWidth"
+        android:numColumns="7"
+        android:paddingLeft="10dp"
+        >
+    </GridView>
+
+    <javenue.habits.util.GridViewRelativeSupport
+        android:id="@+id/month_grid"
+        android:numColumns="7"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:gravity="center"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </javenue.habits.util.GridViewRelativeSupport>
+
+</LinearLayout>

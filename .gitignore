@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+.gradle
+local.properties
+build
+gradle
+captures
+projectFilesBackup
+gradlew
+gradlew.bat
+*.iml
