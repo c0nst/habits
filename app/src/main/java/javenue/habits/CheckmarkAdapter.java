@@ -45,7 +45,7 @@ class CheckmarkAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         ImageView image = (ImageView) holder.view.findViewById(R.id.checkmark_image);
 
-        int resource = R.drawable.ic_check_black_24dp;
+        int resource = R.drawable.ic_check_white_24dp;
         int colorId = R.color.colorPrimary;
         boolean scale = false;
         switch (checkmark.getValue()) {

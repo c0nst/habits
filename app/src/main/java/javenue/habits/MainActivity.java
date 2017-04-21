@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
-        drawerToggle.setHomeAsUpIndicator(R.drawable.ic_menu_white_48dp);
-        drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,10 +63,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         drawer = (NavigationView) findViewById(R.id.navigation_drawer);
-        updateDrawerMaterialWidth();
+        updateDrawerMaterialDimensions();
         drawer.setNavigationItemSelectedListener(new DrawerListener());
-        drawer.getMenu().getItem(0).setChecked(true);
-
         drawer.getHeaderView(0).setBackgroundResource(R.drawable.sidenav_bg);
 
         tips = getBaseContext().getResources().getStringArray(R.array.tips_array);
@@ -78,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
         Alarms.adjust(this);
 
-        switchToGoalsFragment();
+        Fragment currentFragment = switchToGoalsFragment();
+        updateDrawerState(currentFragment instanceof GoalsFragment);
+        updateToolbarTitle(currentFragment);
+        updateDrawerSelectedItem(currentFragment);
+        drawerToggle.syncState();
     }
 
     private void migrateCheckmarks() {
@@ -133,21 +133,20 @@ public class MainActivity extends AppCompatActivity {
         updateDrawerState(currentFragment instanceof GoalsFragment);
         updateToolbarTitle(currentFragment);
         updateDrawerSelectedItem(currentFragment);
+        drawerToggle.syncState();
     }
 
     private Fragment getCurrentFragment() {
         return getFragmentManager().findFragmentByTag("tag");
     }
 
-    private void updateDrawerMaterialWidth() {
+    private void updateDrawerMaterialDimensions() {
         final Display display = getWindowManager().getDefaultDisplay();
         final Point size = new Point();
         display.getSize(size);
 
         ViewGroup.LayoutParams params = drawer.getLayoutParams();
-
         params.width = size.x - getResources().getDimensionPixelSize(R.dimen.toolbar_material_height);
-
         drawer.setLayoutParams(params);
 
         View headerView = drawer.getHeaderView(0);
@@ -158,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateToolbarTitle(Fragment fragment) {
         if (fragment instanceof GoalsFragment) {
-            setTitle(getResources().getString(R.string.app_name));
+            setTitle(getResources().getString(R.string.action_my_goals));
             return;
         }
         if (fragment instanceof ArchiveFragment)
@@ -299,6 +298,7 @@ public class MainActivity extends AppCompatActivity {
             updateToolbarTitle(currentFragment);
             setTipsText();
             drawerLayout.closeDrawers();
+            drawerToggle.syncState();
             return true;
         }
     }
@@ -376,13 +376,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateDrawerState(boolean enabled) {
         drawerToggle.setDrawerIndicatorEnabled(enabled);
+//        drawerToggle.setHomeAsUpIndicator(enabled ? R.drawable.ic_menu_white_48dp : R.drawable.abc_ic_ab_back_material);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(!enabled);
             actionBar.setDisplayShowHomeEnabled(!enabled);
         }
-
-        drawerToggle.syncState();
     }
 }

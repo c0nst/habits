@@ -11,11 +11,6 @@
 
         <item name="android:actionMenuTextColor">@color/colorWhite</item>
         <item name="actionMenuTextColor">@color/colorWhite</item>
-
-        <item name="android:windowTranslucentStatus">true</item>
-
-        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
-        <!--<item name="android:statusBarColor">@color/colorPrimaryTransparent</item>-->
     </style>
 
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
